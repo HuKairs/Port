@@ -19,32 +19,10 @@ body {
     }
 }
 
-#blob {
-    background-color: white;
-    height: 34vmax;
-    aspect-ratio: 1;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: linear-gradient(to right, aquamarine, mediumpurple);
-    animation: rotate 20s infinite;
-    opacity: 0.8;
-}
-
-#blur {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 2;
-    backdrop-filter: blur(12vmax);
-}
-
 .text-container {
     display: flex;
     justify-content: center;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     position: relative;
     z-index: 3;
 }
@@ -58,7 +36,7 @@ body {
 }
 
 .text {
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(0.5rem, 1vw, 1.5rem);
     color: white;
     background-color: transparent;
     padding: 0.5rem 1rem;
@@ -77,16 +55,4 @@ body {
     padding-top: 20vh;
     z-index: 3;
     position: relative;
-}
-
-.sticky-title {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 1rem;
-    font-size: 2rem;
-    z-index: 5;
-    transition: background-color 0.5s;
 }
