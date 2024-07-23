@@ -10,18 +10,3 @@ window.onpointermove = event => {
     top: `${clientY}px`
   }, { duration: 3000, fill: "forwards" });
 }
-
-/* -- Sticky title effect -- */
-
-const titles = document.querySelectorAll('.sticky-title');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    } else {
-      entry.target.classList.remove('visible');
-    }
-  });
-}, { threshold: 0.5 });
-
-titles.forEach(title => observer.observe(title));
