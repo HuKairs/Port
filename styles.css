@@ -1,0 +1,48 @@
+body {
+  background: linear-gradient(45deg,#00000c,#000034,#000050);
+  animation: color 12s ease-in-out infinite;
+}
+
+@keyframes color {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.text-container.left {
+  justify-content: flex-start;
+}
+
+.text-container.right {
+  justify-content: flex-end;
+}
+
+.text {
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  color: white;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Space Mono', monospace;
+}
+
+.text:hover {
+  color: black;
+  background-color: white;
+  transform: scale(1.05);
+}
