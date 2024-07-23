@@ -1,63 +1,90 @@
 body {
-    background-color: white;
-    height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
-    color: black;
-    font-family: 'Space Mono', monospace;
+  background-color: black;
+  margin: 0;
+  overflow-x: hidden;
+  color: white;
+  font-family: 'Space Mono', monospace;
+  background: linear-gradient(to bottom, #000000, #00008b); /* Gradient from black to dark blue */
 }
 
-.top-title {
-    background-color: transparent;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
-    text-align: center;
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  50% {
+    scale: 1 1.5;
+  }
+  to {
+    rotate: 360deg;
+  }
 }
 
-.title {
-    margin: 0;
-    font-size: 2rem;
-    color: black;
+#blob {
+  background-color: white;
+  height: 34vmax;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, aquamarine, mediumpurple);
+  animation: rotate 20s infinite;
+  opacity: 0.8;
 }
 
-.content {
-    padding-top: 5rem; /* Adjust based on the height of the top-title */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#blur {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  backdrop-filter: blur(12vmax);
 }
 
 .text-container {
-    display: flex;
-    justify-content: center;
-    margin: 1.5rem 0;
-    width: 80%; /* Adjust width as needed */
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
 }
 
 .text-container.left {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .text-container.right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .text {
-    font-size: clamp(1rem, 1.5vw, 2rem);
-    color: black;
-    background-color: transparent;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    transition: all 0.3s ease-in-out;
-    font-family: 'Space Mono', monospace;
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  color: white;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Space Mono', monospace;
 }
 
 .text:hover {
-    color: black;
-    background-color: white;
-    transform: scale(1.05);
+  color: black;
+  background-color: white;
+  transform: scale(1.05);
+}
+
+.content {
+  padding-top: 20vh;
+  z-index: 3;
+  position: relative;
+}
+
+.sticky-title {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 1rem;
+  font-size: 2rem;
+  z-index: 5;
+  transition: background-color 0.5s;
 }
