@@ -1,51 +1,75 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Space Mono', monospace;
-    background: linear-gradient(to right, #00000c, #000034, #000050);
-    color: white;
-    overflow: hidden;
+  background-color: black;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: white;
+  font-family: 'Space Mono', monospace;
+  position: relative;
 }
 
-.text-item {
-    padding: 10px 20px;
-    margin: 20px;
-    position: fixed; /* Changed to fixed position */
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    background-color: transparent;
-    border-radius: 15px; /* Rounded corners */
-    border: 2px solid white; /* Border for the container */
-    font-weight: bold; /* Make font bold */
-    cursor: pointer;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.page-title {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2rem, 5vw, 5rem);
+  color: white;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.text-item.left {
-    left: 20px;
-    transform-origin: left center; /* Adjust transform origin */
+#top-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, black, #0a0f2c);
+  z-index: 1;
 }
 
-.text-item.right {
-    right: 20px;
-    transform-origin: right center; /* Adjust transform origin */
+#bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to top, black, #0a0f2c);
+  z-index: 1;
 }
 
-.text-item:hover {
-    background-color: white;
-    color: black;
+.content {
+  padding-top: 120vh; /* Adjust padding to ensure you need to scroll */
+  position: relative;
+  z-index: 2;
 }
 
-.text-item:hover::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: white;
-    opacity: 0.2;
-    z-index: -1;
+.text-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0; /* Adjusted margin to space out the text */
+  perspective: 1000px; /* Add perspective to the container */
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth tilt */
+}
+
+.text-container.left {
+  justify-content: flex-start;
+}
+
+.text-container.right {
+  justify-content: flex-end;
+}
+
+.text {
+  font-size: clamp(1rem, 1.5vw, 2rem); /* Made the text smaller */
+  color: white;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition for smooth tilt */
+  font-family: 'Space Mono', monospace;
+}
+
+.text:hover {
+  color: black;
+  background-color: white;
+  transform: scale(1.05);
 }
