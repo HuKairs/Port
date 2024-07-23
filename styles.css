@@ -59,7 +59,7 @@ body {
 }
 
 .text {
-  font-size: clamp(1rem, 1.5vw, 2rem); /* Made the text smaller */
+  font-size: clamp(0.5rem, 1vw, 1.5rem);
   color: white;
   background-color: transparent;
   padding: 0.5rem 1rem;
