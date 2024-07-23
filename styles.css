@@ -18,21 +18,24 @@ body {
 
 .text-wrapper {
     display: flex;
-    white-space: nowrap;
-    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .text-item {
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 0 20px;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     position: relative;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .text-item:hover {
     background-color: white;
     color: black;
+    transform: scale(1.1);
+    z-index: 10;
 }
 
 .text-item::after {
@@ -45,14 +48,11 @@ body {
     background-color: white;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .text-item:hover::after {
     opacity: 0.2;
-}
-
-.text-wrapper {
-    animation: slide 10s linear infinite;
 }
 
 @keyframes slide {
@@ -62,5 +62,18 @@ body {
     100% {
         transform: translateX(-100%);
     }
+}
+
+.text-wrapper {
+    display: flex;
+    animation: slide 20s linear infinite;
+}
+
+.text-item:nth-child(odd) {
+    transform: translateX(-100%);
+}
+
+.text-item:nth-child(even) {
+    transform: translateX(100%);
 }
 
