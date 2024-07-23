@@ -1,14 +1,16 @@
-document.querySelectorAll('.text-item').forEach(item => {
-    item.addEventListener('mousemove', (e) => {
-        const rect = item.getBoundingClientRect();
-        const offsetX = (e.clientX - rect.left) / rect.width * 10 - 5; // Horizontal tilt
-        const offsetY = (e.clientY - rect.top) / rect.height * 10 - 5; // Vertical tilt
+/* -- Text container tilt effect -- */
+document.querySelectorAll('.text-container').forEach(container => {
+  container.onmousemove = event => {
+    const { offsetX, offsetY, target } = event;
+    const { clientWidth, clientHeight } = target;
 
-        // Apply tilt effect
-        item.style.transform = `rotateX(${offsetY}deg) rotateY(${offsetX}deg)`;
-    });
+    const rotateX = ((offsetY / clientHeight) - 0.5) * 20; // Adjust the multiplier for more/less tilt
+    const rotateY = ((offsetX / clientWidth) - 0.5) * -20; // Adjust the multiplier for more/less tilt
 
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = '';
-    });
+    container.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  };
+
+  container.onmouseleave = () => {
+    container.style.transform = 'rotateX(0) rotateY(0)';
+  };
 });
