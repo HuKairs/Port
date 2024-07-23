@@ -1,16 +1,27 @@
-/* -- Text container tilt effect -- */
-document.querySelectorAll('.text-container').forEach(container => {
-  container.onmousemove = event => {
-    const { offsetX, offsetY, target } = event;
-    const { clientWidth, clientHeight } = target;
+/* -- Glow effect -- */
 
-    const rotateX = ((offsetY / clientHeight) - 0.5) * 20; // Adjust the multiplier for more/less tilt
-    const rotateY = ((offsetX / clientWidth) - 0.5) * -20; // Adjust the multiplier for more/less tilt
+const blob = document.getElementById("blob");
 
-    container.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  };
+window.onpointermove = event => { 
+  const { clientX, clientY } = event;
+  
+  blob.animate({
+    left: `${clientX}px`,
+    top: `${clientY}px`
+  }, { duration: 3000, fill: "forwards" });
+}
 
-  container.onmouseleave = () => {
-    container.style.transform = 'rotateX(0) rotateY(0)';
-  };
-});
+/* -- Sticky title effect -- */
+
+const titles = document.querySelectorAll('.sticky-title');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}, { threshold: 0.5 });
+
+titles.forEach(title => observer.observe(title));
