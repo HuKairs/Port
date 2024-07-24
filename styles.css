@@ -1,59 +1,51 @@
-body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background-color: #f8f8f8;
-            padding: 10px 0;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        nav ul li a {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: transparent;
+}
+
+.logo {
+            font-size: 32px;
+            color: #000000;
             text-decoration: none;
-            color: #007bff;
-        }
-        main {
-            padding: 20px;
-        }
-        section {
-            margin-bottom: 20px;
-        }
-        h2, h3 {
-            color: #007bff;
-        }
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .pricing-table th, .pricing-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        .pricing-table th {
-            background-color: #f4f4f4;
-        }
-        footer {
-            background-color: #f8f8f8;
-            padding: 10px 0;
-            text-align: center;
-            border-top: 1px solid #ddd;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+            font-weight: 700;
+}
+
+
+.navbar a {
+  position: relative;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 40px;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+}
